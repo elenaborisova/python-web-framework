@@ -1,0 +1,30 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <title>Title</title>
+</head>
+<body>
+<form action="{% url 'create phone' %}"
+      method="post"
+      enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form }}
+    <button>Create</button>
+</form>
+<ul class="list">
+    {% for phone in phones %}
+        <li>
+            {% if phone.selected_image %}
+                <img src="{{ phone.selected_image.url }}"/>
+            {% endif %}
+            {{ phone.manufacturer }}
+            {{ phone.model }}
+        </li>
+    {% endfor %}
+</ul>
+</body>
+</html>

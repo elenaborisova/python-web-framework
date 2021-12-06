@@ -1,0 +1,16 @@
+. list {
+    list-style-type: none;
+}
+
+.list > * {
+    padding: 0;
+    margin: 5px 0 0;
+}
+
+.list img {
+    height: 50px;
+}
+
+img {
+    max-width: 100%;
+}
